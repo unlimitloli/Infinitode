@@ -17,9 +17,9 @@ bool StartLayer::init()
 	if (!Layer::init())
 		return false;
 	
-	auto node = CSLoader::createNode(csb_config.start_layer);
-	addChild(node);
-	m_root = node->getChildByName("root");
+	auto csb_node = CSLoader::createNode(csb_config.start_layer);
+	addChild(csb_node);
+	m_root = csb_node->getChildByName("root");
 
 	return true;
 }

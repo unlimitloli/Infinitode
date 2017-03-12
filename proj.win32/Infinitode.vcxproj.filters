@@ -16,6 +16,15 @@
     <Filter Include="src\commons">
       <UniqueIdentifier>{7980a9d2-733d-4242-b45e-cd3b4e801229}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\GameScene">
+      <UniqueIdentifier>{e11398b0-22e0-4a42-83c7-e5bf7002acc5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\GameScene\GameLayer">
+      <UniqueIdentifier>{18475454-d438-4ced-8485-bb217eb37c26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\GameScene\GameMap">
+      <UniqueIdentifier>{54f7ea56-a65e-4760-93ef-b952826305f5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -32,6 +41,12 @@
     </ClCompile>
     <ClCompile Include="..\Classes\csb_config.cpp">
       <Filter>src\commons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameScene.cpp">
+      <Filter>src\GameScene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameLayer.cpp">
+      <Filter>src\GameScene\GameLayer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -52,6 +67,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\csb_config.h">
       <Filter>src\commons</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameScene.h">
+      <Filter>src\GameScene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameLayer.h">
+      <Filter>src\GameScene\GameLayer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
