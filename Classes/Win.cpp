@@ -1,6 +1,7 @@
 #include "Win.h"
 #include "StartLayer.h"
 #include "GameLayer.h"
+#include "MenuLayer.h"
 
 USING_NS_CC;
 using namespace std;
@@ -24,16 +25,17 @@ Win * Win::getInstance()
 	return win_class;
 }
 
-void Win::open(cocos2d::Layer * layer, OrderType z_order)
+cocos2d::Layer * Win::open(cocos2d::Layer * layer, OrderType z_order)
 {
 	if (m_layers.contains(layer))
-		return;
+		return layer;
 	
 	addChild(layer, (int)z_order);
 	m_layers.pushBack(layer);
+	return layer;
 }
 
-void Win::open(LayerType type, OrderType z_order)
+cocos2d::Layer * Win::open(LayerType type, OrderType z_order)
 {
 	Layer *layer = nullptr;
 	switch (type)
@@ -44,12 +46,17 @@ void Win::open(LayerType type, OrderType z_order)
 	case LayerType::GameLayer:
 		layer = GameLayer::create();
 		break;
+	case LayerType::MenuLayer:
+		layer = MenuLayer::create();
+		break;
 	default:
 		break;
 	}
 
 	if (layer != nullptr)
-		open(layer, z_order);
+		return open(layer, z_order);
+
+	return nullptr;
 }
 
 void Win::close(cocos2d::Layer * layer)

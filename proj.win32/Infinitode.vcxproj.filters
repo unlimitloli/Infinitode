@@ -28,6 +28,9 @@
     <Filter Include="src\commons\Window">
       <UniqueIdentifier>{27c4631d-6947-4886-9fb0-eccc10ef878d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\GameScene\MenuLayer">
+      <UniqueIdentifier>{d574975c-c81a-471f-bda8-44f89ff74337}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -56,6 +59,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\MapCell.cpp">
       <Filter>src\GameScene\GameMap</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MenuLayer.cpp">
+      <Filter>src\GameScene\MenuLayer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -88,6 +94,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\MapCell.h">
       <Filter>src\GameScene\GameMap</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MenuLayer.h">
+      <Filter>src\GameScene\MenuLayer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

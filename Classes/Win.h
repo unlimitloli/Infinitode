@@ -8,13 +8,15 @@ enum class LayerType
 {
 	StartLayer,
 	GameLayer,
+	MenuLayer,
 };
 
 enum class OrderType
 {
 	ui = 100,
 	view = 200,
-	dialog = 300,
+	menu = 300,
+	dialog = 400,
 	tips = 1000,
 };
 
@@ -23,8 +25,8 @@ class Win : public cocos2d::Scene
 public:
 	static Win * getInstance();
 
-	void open(cocos2d::Layer *layer, OrderType z_order = OrderType::ui);
-	void open(LayerType type, OrderType z_order = OrderType::ui);
+	cocos2d::Layer * open(cocos2d::Layer *layer, OrderType z_order = OrderType::ui);
+	cocos2d::Layer * open(LayerType type, OrderType z_order = OrderType::ui);
 	void close(cocos2d::Layer *layer);
 
 	void addTouch(cocos2d::ui::Widget *widget, const std::function<void (cocos2d::Ref *sender, int type)> &callback, int param = 0, int music = 0);

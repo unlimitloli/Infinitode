@@ -21,16 +21,28 @@ bool StartLayer::init()
 	addChild(csb_node);
 	m_root = dynamic_cast<Widget *>(csb_node->getChildByName("root"));
 
+	auto start = Helper::seekWidgetByName(m_root, "Panel_Menu_Start");
 	auto new_game = Helper::seekWidgetByName(m_root, "Panel_Menu_New");
-	win->addTouch(new_game, CC_CALLBACK_2(StartLayer::onTouchNewGame, this), 5);
+
+	win->addTouch(start, CC_CALLBACK_2(StartLayer::onTouchNewGame, this), 1);
+	win->addTouch(new_game, CC_CALLBACK_2(StartLayer::onTouchNewGame, this), 2);
 
 	return true;
 }
 
 void StartLayer::onTouchNewGame(cocos2d::Ref * sender, int param)
 {
-	CCLOG("=================%d", param);
-	win->close(this);
-	win->open(LayerType::GameLayer);
+	switch (param)
+	{
+	case 1:
+		win->open(LayerType::MenuLayer, OrderType::menu);
+		break;
+	case 2:
+		win->close(this);
+		win->open(LayerType::GameLayer);
+		break;
+	default:
+		break;
+	}
 }
 
