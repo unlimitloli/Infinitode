@@ -19,7 +19,6 @@ bool GameLayer::init()
 	sprite->setPosition(Vec2::ZERO);
 	scroll_view->addChild(sprite);
 	scroll_view->setInnerContainerSize(sprite->getContentSize());
-	
 
 	return true;
 }

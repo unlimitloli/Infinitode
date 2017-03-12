@@ -1,7 +1,5 @@
 #include "AppDelegate.h"
-#include "HelloWorldScene.h"
-#include "StartLayer.h"
-#include "GameScene.h"
+#include "Win.h"
 
 USING_NS_CC;
 
@@ -78,11 +76,9 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
 	FileUtils::getInstance()->addSearchPath("cocostudio");
 
-    // create a scene. it's an autorelease object
-	auto scene = GameScene::create();
-
     // run
-    director->runWithScene(scene);
+	win->open(LayerType::StartLayer);
+    director->runWithScene(win);
 
     return true;
 }

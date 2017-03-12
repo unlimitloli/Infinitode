@@ -25,6 +25,9 @@
     <Filter Include="src\GameScene\GameMap">
       <UniqueIdentifier>{54f7ea56-a65e-4760-93ef-b952826305f5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\commons\Window">
+      <UniqueIdentifier>{27c4631d-6947-4886-9fb0-eccc10ef878d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -42,11 +45,11 @@
     <ClCompile Include="..\Classes\csb_config.cpp">
       <Filter>src\commons</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\GameScene.cpp">
-      <Filter>src\GameScene</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\GameLayer.cpp">
       <Filter>src\GameScene\GameLayer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Win.cpp">
+      <Filter>src\commons\Window</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -68,11 +71,11 @@
     <ClInclude Include="..\Classes\csb_config.h">
       <Filter>src\commons</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\GameScene.h">
-      <Filter>src\GameScene</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\GameLayer.h">
       <Filter>src\GameScene\GameLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Win.h">
+      <Filter>src\commons\Window</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

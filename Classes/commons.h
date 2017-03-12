@@ -4,3 +4,4 @@
 #include "cocostudio\CocoStudio.h"
 
 #include "csb_config.h"
+#include "Win.h"
