@@ -1,8 +1,10 @@
 #include "GameLayer.h"
+#include "GameMap.h"
 
 USING_NS_CC;
 using namespace ui;
 using namespace cocostudio;
+using namespace std;
 
 bool GameLayer::init()
 {
@@ -14,11 +16,19 @@ bool GameLayer::init()
 	m_root = csb_node->getChildByName("root");
 
 	auto scroll_view = dynamic_cast<ScrollView *>(m_root->getChildByName("ScrollView_map"));
-	auto sprite = Sprite::create("01.png");
-	sprite->setAnchorPoint(Vec2::ZERO);
-	sprite->setPosition(Vec2::ZERO);
-	scroll_view->addChild(sprite);
-	scroll_view->setInnerContainerSize(sprite->getContentSize());
+	scroll_view->removeAllChildrenWithCleanup(true);
+	scroll_view->setScrollBarEnabled(false);
+	auto game_map = GameMap::create();
+	scroll_view->addChild(game_map);
+
+	auto map_size = game_map->getContentSize();
+	auto scroll_size = scroll_view->getContentSize();
+	Size size;
+	size.width = max(map_size.width, scroll_size.width);
+	size.height = max(map_size.height, scroll_size.height);
+
+	game_map->setPosition(scroll_size.width / 2, scroll_size.height / 2);
+	scroll_view->setInnerContainerSize(size);
 
 	return true;
 }

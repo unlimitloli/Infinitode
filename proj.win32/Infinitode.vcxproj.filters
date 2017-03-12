@@ -51,6 +51,12 @@
     <ClCompile Include="..\Classes\Win.cpp">
       <Filter>src\commons\Window</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\GameMap.cpp">
+      <Filter>src\GameScene\GameMap</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MapCell.cpp">
+      <Filter>src\GameScene\GameMap</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -76,6 +82,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Win.h">
       <Filter>src\commons\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameMap.h">
+      <Filter>src\GameScene\GameMap</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MapCell.h">
+      <Filter>src\GameScene\GameMap</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
