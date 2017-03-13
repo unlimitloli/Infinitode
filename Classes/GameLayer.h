@@ -1,6 +1,8 @@
 #pragma once
 #include "commons.h"
 
+class MenuLayer;
+
 class GameLayer : public cocos2d::Layer
 {
 public:
@@ -8,5 +10,7 @@ public:
 	virtual bool init() override;
 
 protected:
-	cocos2d::Node *m_root;
+	cocos2d::ui::Widget *m_root = nullptr;;
+
+	MenuLayer *m_menu_layer = nullptr;
 };

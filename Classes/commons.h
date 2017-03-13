@@ -3,5 +3,8 @@
 #include "ui\CocosGUI.h"
 #include "cocostudio\CocoStudio.h"
 
-#include "csb_config.h"
+#include "config.h"
 #include "Win.h"
+#include "GameManager.h"
+
+#include "ConfigParse.h"

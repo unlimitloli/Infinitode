@@ -34,6 +34,15 @@
     <Filter Include="src\GameScene\GameManager">
       <UniqueIdentifier>{104b70a0-ae42-449a-b4c8-56c266ac350f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\commons\parse">
+      <UniqueIdentifier>{842a5a3b-56ff-4b20-a943-50105ead039e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\commons\parse\ConfigParse">
+      <UniqueIdentifier>{9cbb7e2d-31ef-43cf-8905-69309a7b433d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\commons\utils">
+      <UniqueIdentifier>{e6967345-002f-402c-8834-b77d2711ebd5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -47,9 +56,6 @@
     </ClCompile>
     <ClCompile Include="..\Classes\StartLayer.cpp">
       <Filter>src\StartScene</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\csb_config.cpp">
-      <Filter>src\commons</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\GameLayer.cpp">
       <Filter>src\GameScene\GameLayer</Filter>
@@ -69,6 +75,18 @@
     <ClCompile Include="..\Classes\GameManager.cpp">
       <Filter>src\GameScene\GameManager</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\ConfigParse.cpp">
+      <Filter>src\commons\parse\ConfigParse</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ParseData.cpp">
+      <Filter>src\commons\parse</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\string_utils.cpp">
+      <Filter>src\commons\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\config.cpp">
+      <Filter>src\commons</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -84,9 +102,6 @@
       <Filter>src\StartScene</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\commons.h">
-      <Filter>src\commons</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\csb_config.h">
       <Filter>src\commons</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\GameLayer.h">
@@ -106,6 +121,18 @@
     </ClInclude>
     <ClInclude Include="..\Classes\GameManager.h">
       <Filter>src\GameScene\GameManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ConfigParse.h">
+      <Filter>src\commons\parse\ConfigParse</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ParseData.h">
+      <Filter>src\commons\parse</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\string_utils.h">
+      <Filter>src\commons\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\config.h">
+      <Filter>src\commons</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

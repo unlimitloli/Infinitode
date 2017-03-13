@@ -29,6 +29,8 @@ bool GameMap::init()
 	m_width = 10;
 	m_height = 7;
 
+	ParseData data = ParseData("config/map/map_1.txt");
+
 	for (int i = 0; i < m_width; ++i)
 	{
 		for (int j = 0; j < m_height; ++j)

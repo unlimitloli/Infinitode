@@ -18,11 +18,9 @@ bool MenuLayer::init()
 
 	auto back = Helper::seekWidgetByName(m_root, "Button_back");
 
-	win->addTouch(back, [&](cocos2d::Ref *sender, int param) {
+	_win->addTouch(back, [&](cocos2d::Ref *sender, int param) {
 		hide();
 	});
-
-	show();
 
 	return true;
 }

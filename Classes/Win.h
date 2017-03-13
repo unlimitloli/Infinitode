@@ -2,7 +2,7 @@
 #include "cocos2d.h"
 #include "ui\CocosGUI.h"
 
-#define win			Win::getInstance()
+#define _win			Win::getInstance()
 
 enum class LayerType
 {

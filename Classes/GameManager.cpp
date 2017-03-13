@@ -12,6 +12,7 @@ GameManager * GameManager::getInstance()
 		if (manager && manager->init())
 		{
 			manager->autorelease();
+			manager->retain();
 			return manager;
 		}
 		else
@@ -24,11 +25,20 @@ GameManager * GameManager::getInstance()
 	return manager;
 }
 
-void GameManager::close()
+void GameManager::start()
+{
+	if (manager != nullptr)
+	{
+		_win->addChild(this, (int)OrderType::system);
+	}
+}
+
+void GameManager::end()
 {
 	if (manager != nullptr)
 	{
 		manager->removeFromParentAndCleanup(true);
+		manager->release();
 		manager = nullptr;
 	}
 }
@@ -37,8 +47,6 @@ bool GameManager::init()
 {
 	if (!Node::init())
 		return false;
-
-	win->addChild(this, (int)OrderType::system);
 
 	return true;
 }

@@ -77,8 +77,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	FileUtils::getInstance()->addSearchPath("cocostudio");
 
     // run
-	win->open(LayerType::StartLayer);
-    director->runWithScene(win);
+	_win->open(LayerType::StartLayer);
+    director->runWithScene(_win);
 
     return true;
 }

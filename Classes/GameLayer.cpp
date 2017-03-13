@@ -1,5 +1,6 @@
 #include "GameLayer.h"
 #include "GameMap.h"
+#include "MenuLayer.h"
 
 USING_NS_CC;
 using namespace ui;
@@ -13,7 +14,9 @@ bool GameLayer::init()
 
 	auto csb_node = CSLoader::createNode(csb_config.game_layer);
 	addChild(csb_node);
-	m_root = csb_node->getChildByName("root");
+	m_root = dynamic_cast<Widget *>(csb_node->getChildByName("root"));
+
+	m_menu_layer = dynamic_cast<MenuLayer *>(_win->open(LayerType::MenuLayer, OrderType::menu));
 
 	auto scroll_view = dynamic_cast<ScrollView *>(m_root->getChildByName("ScrollView_map"));
 	scroll_view->removeAllChildrenWithCleanup(true);
