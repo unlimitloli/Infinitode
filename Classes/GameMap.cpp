@@ -26,18 +26,21 @@ bool GameMap::init()
 	if (!Node::init())
 		return false;
 
-	m_width = 10;
-	m_height = 7;
-
 	ParseData data = ParseData("config/map/map_1.txt");
+	m_width = data.getInt(0, 0);
+	m_height = data.getInt(0, 1);
 
-	for (int i = 0; i < m_width; ++i)
+	for (int row = 0; row < m_height; ++row)
 	{
-		for (int j = 0; j < m_height; ++j)
+		for (int col = 0; col < m_width; ++col)
 		{
-			auto cell = MapCell::create(1);
-			cell->setPosition(i * cell_width, j * cell_height);
-			addChild(cell);
+			int type = data.getInt(row + 1, col);
+			if (type > 0)
+			{
+				auto cell = MapCell::create(type);
+				cell->setPosition(col * cell_width, (m_height - 1- row) * cell_height);
+				addChild(cell);
+			}
 		}
 	}
 

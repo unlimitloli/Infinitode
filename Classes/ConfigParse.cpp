@@ -23,7 +23,6 @@ ParseData::_MapType ConfigParse::parseFile(const char * filename)
 	{
 		string line;
 		getline(input_file, line);
-		istringstream line_stream(line);
 		vector<string> line_vec = split(line, " \t\n,");
 		data.push_back(line_vec);
 	}

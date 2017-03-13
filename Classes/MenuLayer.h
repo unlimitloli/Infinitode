@@ -13,4 +13,6 @@ public:
 protected:
 	cocos2d::ui::Widget *m_root;
 	cocostudio::timeline::ActionTimeline * m_actions;
+
+	bool m_is_show = false;
 };

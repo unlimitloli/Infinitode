@@ -14,15 +14,15 @@ std::string ElementData::getString(int col) const
 	return m_data.at(col);
 }
 
-int ElementData::getInt(int row, int col) const
+int ElementData::getInt(int col) const
 {
-	string value = m_data.at(row);
+	string value = m_data.at(col);
 	return atoi(value.c_str());
 }
 
-double ElementData::getFloat(int row, int col) const
+double ElementData::getFloat(int col) const
 {
-	string value = m_data.at(row);
+	string value = m_data.at(col);
 	return atof(value.c_str());
 }
 
@@ -39,18 +39,18 @@ ElementData ParseData::getElement(int row) const
 
 std::string ParseData::getString(int row, int col) const
 {
-	return m_data.at(row).at(row);
+	return m_data.at(row).at(col);
 }
 
 int ParseData::getInt(int row, int col) const
 {
-	string value = m_data.at(row).at(row);
+	string value = m_data.at(row).at(col);
 	return atoi(value.c_str());
 }
 
 double ParseData::getFloat(int row, int col) const
 {
-	string value = m_data.at(row).at(row);
+	string value = m_data.at(row).at(col);
 	return atof(value.c_str());
 }
 

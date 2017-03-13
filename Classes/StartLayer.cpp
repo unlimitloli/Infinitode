@@ -35,7 +35,6 @@ void StartLayer::onTouchNewGame(cocos2d::Ref * sender, int param)
 	switch (param)
 	{
 	case 1:
-		_win->open(LayerType::MenuLayer, OrderType::menu);
 		break;
 	case 2:
 		_win->close(this);

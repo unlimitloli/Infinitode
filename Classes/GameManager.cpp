@@ -1,4 +1,6 @@
 #include "GameManager.h"
+#include "GameLayer.h"
+#include "MenuLayer.h"
 
 USING_NS_CC;
 
@@ -49,4 +51,29 @@ bool GameManager::init()
 		return false;
 
 	return true;
+}
+
+void GameManager::setGameLayer(GameLayer *layer)
+{
+	m_game_layer = layer;
+}
+
+void GameManager::setMenuLayer(MenuLayer *layer)
+{
+	m_menu_layer = layer;
+}
+
+GameLayer * GameManager::getGameLayer()
+{
+	return m_game_layer;
+}
+
+MenuLayer * GameManager::getMenuLayer()
+{
+	return m_menu_layer;
+}
+
+void GameManager::openMenu()
+{
+	m_menu_layer->show();
 }

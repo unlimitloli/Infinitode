@@ -12,8 +12,8 @@ public:
 	ElementData(const _VectorType &vec);
 	
 	std::string getString(int col) const;
-	int getInt(int row, int col) const;
-	double getFloat(int row, int col) const;
+	int getInt(int col) const;
+	double getFloat(int col) const;
 
 protected:
 	const _VectorType &m_data;

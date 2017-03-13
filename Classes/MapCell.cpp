@@ -32,5 +32,26 @@ bool MapCell::init(int type)
 	setContentSize(sprite->getContentSize());
 	setAnchorPoint(Vec2::ZERO);
 
+	auto listener = EventListenerTouchOneByOne::create();
+	listener->setSwallowTouches(true);
+	listener->onTouchBegan = CC_CALLBACK_2(MapCell::onTouchBegan, this);
+	listener->onTouchEnded = CC_CALLBACK_2(MapCell::onTouchEnded, this);
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, sprite);
+
 	return true;
+}
+
+void MapCell::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
+{
+	_game->openMenu();
+}
+
+bool MapCell::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *event)
+{
+	auto pos = touch->getLocation();
+	pos = getParent()->convertToNodeSpace(pos);
+
+	if (getBoundingBox().containsPoint(pos))
+		return true;
+	return false;
 }
