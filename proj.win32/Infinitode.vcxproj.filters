@@ -31,6 +31,9 @@
     <Filter Include="src\GameScene\MenuLayer">
       <UniqueIdentifier>{d574975c-c81a-471f-bda8-44f89ff74337}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\GameScene\GameManager">
+      <UniqueIdentifier>{104b70a0-ae42-449a-b4c8-56c266ac350f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -62,6 +65,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\MenuLayer.cpp">
       <Filter>src\GameScene\MenuLayer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameManager.cpp">
+      <Filter>src\GameScene\GameManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -97,6 +103,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\MenuLayer.h">
       <Filter>src\GameScene\MenuLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameManager.h">
+      <Filter>src\GameScene\GameManager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

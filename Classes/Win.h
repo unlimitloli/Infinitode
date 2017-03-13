@@ -13,6 +13,7 @@ enum class LayerType
 
 enum class OrderType
 {
+	system = 10,
 	ui = 100,
 	view = 200,
 	menu = 300,
