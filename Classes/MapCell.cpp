@@ -29,6 +29,9 @@ bool MapCell::init(int type)
 	sprite->setPosition(Vec2::ZERO);
 	addChild(sprite);
 
+	_process->setProcess(sprite, Process::GRAY);
+	m_sprite = sprite;
+
 	setContentSize(sprite->getContentSize());
 	setAnchorPoint(Vec2::ZERO);
 
@@ -44,6 +47,7 @@ bool MapCell::init(int type)
 void MapCell::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 {
 	_game->openMenu();
+	_process->setProcess(m_sprite, Process::RECOVERY);
 }
 
 bool MapCell::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *event)

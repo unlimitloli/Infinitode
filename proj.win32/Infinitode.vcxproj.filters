@@ -43,6 +43,9 @@
     <Filter Include="src\commons\utils">
       <UniqueIdentifier>{e6967345-002f-402c-8834-b77d2711ebd5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\commons\process">
+      <UniqueIdentifier>{1b28cc24-b133-483e-8107-afd4a6eb43c4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -86,6 +89,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\config.cpp">
       <Filter>src\commons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Process.cpp">
+      <Filter>src\commons\process</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -133,6 +139,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\config.h">
       <Filter>src\commons</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Process.h">
+      <Filter>src\commons\process</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

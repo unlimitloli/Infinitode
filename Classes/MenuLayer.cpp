@@ -14,10 +14,6 @@ bool MenuLayer::init()
 	auto csb_node = CSLoader::createNode(csb_config.menu_layer);
 	addChild(csb_node);
 	m_root = dynamic_cast<Widget *>(csb_node->getChildByName("root"));
-	//m_root->setSwallowTouches(false);
-
-	//auto panel = Helper::seekWidgetByName(m_root, "Panel_menu");
-	//panel->setSwallowTouches(true);
 
 	m_actions = CSLoader::createTimeline(csb_config.menu_layer);
 	runAction(m_actions);

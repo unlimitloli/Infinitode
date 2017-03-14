@@ -154,6 +154,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\MapCell.cpp" />
     <ClCompile Include="..\Classes\MenuLayer.cpp" />
     <ClCompile Include="..\Classes\ParseData.cpp" />
+    <ClCompile Include="..\Classes\Process.cpp" />
     <ClCompile Include="..\Classes\StartLayer.cpp" />
     <ClCompile Include="..\Classes\string_utils.cpp" />
     <ClCompile Include="..\Classes\Win.cpp" />
@@ -171,6 +172,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\MapCell.h" />
     <ClInclude Include="..\Classes\MenuLayer.h" />
     <ClInclude Include="..\Classes\ParseData.h" />
+    <ClInclude Include="..\Classes\Process.h" />
     <ClInclude Include="..\Classes\StartLayer.h" />
     <ClInclude Include="..\Classes\string_utils.h" />
     <ClInclude Include="..\Classes\Win.h" />

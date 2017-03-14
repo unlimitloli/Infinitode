@@ -12,4 +12,5 @@ public:
 
 protected:
 	int m_type;
+	cocos2d::Sprite *m_sprite;
 };
