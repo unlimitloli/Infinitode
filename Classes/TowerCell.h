@@ -8,6 +8,8 @@ public:
 	bool initWithId(int tower_id);
 
 	void updateDraw();
+	void setSelected(bool flag);
+	int getTowerId() const { return m_tower_id; }
 
 protected:
 	int m_tower_id = 0;

@@ -10,3 +10,4 @@
 
 #include "ConfigParse.h"
 #include "Process.h"
+#include "LocalData.h"

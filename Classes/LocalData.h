@@ -2,10 +2,10 @@
 
 enum class tower_config
 {
-	id = 1,
-	name = 2,
-	pic = 3,
-	describe = 4,
-	function_des = 5,
-	build_cost = 6,
+	id = 0,
+	name = 1,
+	pic = 2,
+	describe = 3,
+	function_des = 4,
+	build_cost = 5,
 };
