@@ -1,5 +1,6 @@
 #include "AppDelegate.h"
 #include "Win.h"
+#include "config.h"
 
 USING_NS_CC;
 
@@ -75,7 +76,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     register_all_packages();
 
 	FileUtils::getInstance()->addSearchPath("cocostudio");
-
+	_config->loadConfig();
     // run
 	_win->open(LayerType::StartLayer);
     director->runWithScene(_win);

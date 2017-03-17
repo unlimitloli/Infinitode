@@ -1,11 +1,24 @@
 #pragma once
 
-class CsbConfig
+#include <string>
+#include <map>
+#include "ParseData.h"
+
+#define		_config			Config::getInstance()
+
+class Config
 {
 public:
-	char * start_layer = "cocostudio/StartLayer.csb";
-	char * game_layer = "cocostudio/GameLayer.csb";
-	char * menu_layer = "cocostudio/MenuLayer.csb";
-};
+	static Config *getInstance();
+	
+	void loadConfig();
+	void clear();
+	void reload();
 
-extern CsbConfig csb_config;
+	const ParseData& getData(const std::string & key) const;
+
+protected:
+	std::map<std::string, ParseData> m_config;
+
+	void loadConfigFromFile(const std::string & filename);
+};

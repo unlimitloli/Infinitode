@@ -1,4 +1,5 @@
 #include "MenuLayer.h"
+#include "MapCell.h"
 
 USING_NS_CC;
 using namespace ui;
@@ -27,12 +28,17 @@ bool MenuLayer::init()
 	return true;
 }
 
-void MenuLayer::show()
+void MenuLayer::show(MapCell *cell)
 {
 	if (m_is_show == false)
 	{
 		m_is_show = true;
 		m_actions->play("show", false);
+	}
+	if (cell != m_map_cell)
+	{
+		m_map_cell = cell;
+		showMenu();
 	}
 }
 
@@ -43,4 +49,31 @@ void MenuLayer::hide()
 		m_is_show = false;
 		m_actions->play("hide", false);
 	}
+}
+
+void MenuLayer::showMenu()
+{
+	if ((m_map_cell == nullptr) || (m_map_cell->getState() == 0))
+	{
+		showNewMenu();
+	}
+	else
+	{
+		showUpMenu();
+	}
+}
+
+void MenuLayer::showNewMenu()
+{
+	m_menu_type = 0;
+}
+
+void MenuLayer::showSelectMenu()
+{
+	m_menu_type = 1;
+}
+
+void MenuLayer::showUpMenu()
+{
+	m_menu_type = 2;
 }

@@ -27,6 +27,7 @@ public:
 	typedef std::vector<std::vector<std::string>> _MapType;
 	typedef std::vector<std::string> _VectorType;
 
+	ParseData() {}
 	ParseData(const char * filename);
 	ElementData getElement(int row) const;
 
@@ -34,10 +35,12 @@ public:
 	int getInt(int row, int col) const;
 	double getFloat(int row, int col) const;
 
+	std::size_t count() const { return m_data.size();};
+
 protected:
 	_MapType m_data;
 
 protected:
 	void addLine(_VectorType & line);
-	const char * m_filename;
+	const char * m_filename = "";
 };
