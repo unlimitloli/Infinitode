@@ -45,8 +45,30 @@ bool Monster::initWithId(int monster_id)
 
 void Monster::updateDraw()
 {
+	if (m_monster_id == 0)
+		return;
+
 	Sprite *Sprite_monster = dynamic_cast<Sprite *>(m_root->getChildByName("Sprite_monster"));
 	int pic = _config_int("monster_config", m_monster_id, monster_config::pic);
 
 	Sprite_monster->setTexture(StringUtils::format("images/monster/monster_%d.png", pic));
+}
+
+void Monster::reload(int monster_id)
+{
+	m_monster_id = monster_id;
+	updateDraw();
+}
+
+void Monster::unload()
+{
+	clearUI();
+}
+
+void Monster::clearUI()
+{
+	Sprite *Sprite_monster = dynamic_cast<Sprite *>(m_root->getChildByName("Sprite_monster"));
+	ListView *ListView_buff = dynamic_cast<ListView *>(m_root->getChildByName("ListView_buff"));
+
+	ListView_buff->removeAllItems();
 }

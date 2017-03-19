@@ -64,6 +64,9 @@
     <Filter Include="src\GameScene\Monster">
       <UniqueIdentifier>{313b35e8-81dd-4db1-9311-a9ca953e5a0a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\GameScene\Monster\MonsterManager">
+      <UniqueIdentifier>{f484817b-9ec9-4107-8ff8-a50f1297f2c2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -128,6 +131,12 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Monster.cpp">
       <Filter>src\GameScene\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MonsterPool.cpp">
+      <Filter>src\GameScene\Monster\MonsterManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MonsterManager.cpp">
+      <Filter>src\GameScene\Monster\MonsterManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -208,6 +217,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Monster.h">
       <Filter>src\GameScene\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MonsterManager.h">
+      <Filter>src\GameScene\Monster\MonsterManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MonsterPool.h">
+      <Filter>src\GameScene\Monster\MonsterManager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

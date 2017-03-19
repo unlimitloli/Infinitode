@@ -13,5 +13,6 @@ protected:
 	int m_width;
 	int m_height;
 
-	cocos2d::Vector<MapCell *> m_cells;
+	std::vector<MapCell *> m_map_cells;
+	std::vector<int> m_maps;
 };
