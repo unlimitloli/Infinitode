@@ -1,0 +1,9 @@
+id	关键字	字符串
+1	ATTR_NORMAL	伤害
+2	ATTR_SPEED	攻击速度
+3	NONE	旋转速度
+4	NONE	弹丸速度
+5	ATTR_RATE	冷冻率
+6	ATTR_TIME	瞄准时间
+7	NONE	冻结时间
+8	NONE	解冻时间

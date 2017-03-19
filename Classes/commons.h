@@ -7,6 +7,7 @@
 #include "Win.h"
 #include "GameManager.h"
 #include "config.h"
+#include "I18N.h"
 
 #include "ConfigParse.h"
 #include "Process.h"

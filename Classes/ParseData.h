@@ -35,6 +35,8 @@ public:
 	int getInt(int row, int col) const;
 	double getFloat(int row, int col) const;
 
+	int find(int col, const std::string &key) const;
+
 	std::size_t count() const { return m_data.size();};
 
 protected:

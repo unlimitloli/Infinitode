@@ -54,6 +54,21 @@ double ParseData::getFloat(int row, int col) const
 	return atof(value.c_str());
 }
 
+int ParseData::find(int col, const std::string & key) const
+{
+	int ret = -1;
+	for (size_t i = 0; i < m_data.size(); ++i)
+	{
+		auto &line = m_data.at(i);
+		if (line.at(col) == key)
+		{
+			ret = i;
+			break;
+		}
+	}
+	return ret;
+}
+
 void ParseData::addLine(_VectorType & line)
 {
 	m_data.push_back(line);

@@ -1,31 +1,27 @@
 #include "TowerAttibute.h"
+#include "I18N.h"
 
 using namespace std;
 
-const int MAX_BUFFER_SIZE = 1024;
+static const int MAX_BUFFER_SIZE = 1024;
 
-const char *normal_attr_str[] = {
-	"伤害",
-};
+static int attr_normal = -1;
+static int attr_speed = -1;
+static int attr_rate = -1;
+static int attr_time = -1;
 
-const char *speed_attr_str[] =
+static const char * ATTR_NORMAL = "ATTR_NORMAL";
+static const char * ATTR_SPEED = "ATTR_SPEED";
+static const char * ATTR_RATE = "ATTR_RATE";
+static const char * ATTR_TIME = "ATTR_TIME";
+
+void getStringIndex()
 {
-	"攻击速度",
-	"旋转速度",
-	"弹丸速度",
-};
-
-const char *rate_attr_str[] =
-{
-	"冷冻率",
-};
-
-const char *time_attr_str[] =
-{
-	"瞄准时间",
-	"冻结时间",
-	"解冻时间",
-};
+	attr_normal = _i18n_id("string_tips", ATTR_NORMAL);
+	attr_speed = _i18n_id("string_tips", ATTR_SPEED);
+	attr_rate = _i18n_id("string_tips", ATTR_RATE);
+	attr_time = _i18n_id("string_tips", ATTR_TIME);
+}
 
 TowerAttribute::TowerAttribute(AttrType _type, float _value) :
 	type(_type), value(_value)
@@ -34,15 +30,18 @@ TowerAttribute::TowerAttribute(AttrType _type, float _value) :
 
 std::string TowerAttribute::typeToString()
 {
+	if (attr_normal < 0)
+		getStringIndex();
+
 	int attr_type = (int)type;
 	if (attr_type < 100)
-		return normal_attr_str[attr_type];
+		return _i18n("string_tips", attr_normal + attr_type);
 	else if (attr_type < 200)
-		return speed_attr_str[attr_type - 100];
+		return _i18n("string_tips", attr_speed + attr_type - 100);
 	else if (attr_type < 300)
-		return rate_attr_str[attr_type - 200];
+		return _i18n("string_tips", attr_rate + attr_type - 200);
 	else if (attr_type < 400)
-		return rate_attr_str[attr_type - 300];
+		return _i18n("string_tips", attr_time + attr_type - 300);
 	return "";
 }
 

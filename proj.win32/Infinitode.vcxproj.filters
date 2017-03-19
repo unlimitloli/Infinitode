@@ -58,6 +58,9 @@
     <Filter Include="src\GameScene\Tower\Data\Attribute">
       <UniqueIdentifier>{9c2690ed-eb4f-490f-b890-20050f770f54}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\commons\parse\i8n">
+      <UniqueIdentifier>{48a3366f-1125-4690-bcd0-007a5002a1e1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -193,6 +196,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\AttrCell.h">
       <Filter>src\GameScene\MenuLayer\cell</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\I18N.h">
+      <Filter>src\commons\parse\i8n</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

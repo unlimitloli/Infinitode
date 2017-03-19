@@ -9,6 +9,7 @@
 #define		_config_string(file, id, param)			Config::getInstance()->getData(file).getString(id, (int)param)
 #define		_config_float(file, id, param)			Config::getInstance()->getData(file).getFloat(id, (int)param)
 #define		_config_count(file)						Config::getInstance()->getData(file).count()
+#define		_config_id(file, param, key)			Config::getInstance()->getData(file).find(param, key)
 
 class Config
 {
