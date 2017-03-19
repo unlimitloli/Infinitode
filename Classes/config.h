@@ -4,7 +4,11 @@
 #include <map>
 #include "ParseData.h"
 
-#define		_config			Config::getInstance()
+#define		_config									Config::getInstance()
+#define		_config_int(file, id, param)			Config::getInstance()->getData(file).getInt(id, (int)param)
+#define		_config_string(file, id, param)			Config::getInstance()->getData(file).getString(id, (int)param)
+#define		_config_float(file, id, param)			Config::getInstance()->getData(file).getFloat(id, (int)param)
+#define		_config_count(file)						Config::getInstance()->getData(file).count()
 
 class Config
 {

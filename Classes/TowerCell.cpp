@@ -63,14 +63,22 @@ void TowerCell::updateDraw()
 	Image_select->setVisible(false);
 	Text_gold->setString("");
 
-	int pic = _config->getData("tower_config").getInt(m_tower_id, (int)tower_config::pic);
-	std::string cost = _config->getData("tower_config").getString(m_tower_id, (int)tower_config::build_cost);
+	int pic = _config_int("tower_config", m_tower_id, tower_config::pic);
+	std::string cost = _config_string("tower_config", m_tower_id, tower_config::build_cost);
 	Sprite_tower->setTexture(StringUtils::format("images/tower/tower_%d.png", pic));
 	Text_gold->setString(cost);
 
-	if (m_is_lock == false)
+	if (m_is_lock == true)
 	{
-		
+		_process->setProcess(Sprite_tower, Process::GRAY);
+		Text_gold->setVisible(false);
+		m_root->setTouchEnabled(false);
+	}
+	else
+	{
+		_process->setProcess(Sprite_tower, Process::RECOVERY);
+		Text_gold->setVisible(true);
+		m_root->setTouchEnabled(true);
 	}
 }
 
@@ -78,4 +86,10 @@ void TowerCell::setSelected(bool flag)
 {
 	ImageView *Image_select = dynamic_cast<ImageView *>(m_root->getChildByName("Image_select"));
 	Image_select->setVisible(flag);
+}
+
+void TowerCell::setLocked(bool lock)
+{
+	m_is_lock = lock;
+	updateDraw();
 }

@@ -11,6 +11,8 @@ public:
 	void setSelected(bool flag);
 	int getTowerId() const { return m_tower_id; }
 
+	void setLocked(bool lock);
+
 protected:
 	int m_tower_id = 0;
 	bool m_is_lock = false;
