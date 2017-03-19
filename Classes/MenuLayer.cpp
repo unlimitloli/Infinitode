@@ -54,8 +54,12 @@ void MenuLayer::hide()
 	if (m_is_show == true)
 	{
 		m_is_show = false;
-		m_map_cell = nullptr;
 		m_actions->play("hide", false);
+	}
+	if (m_map_cell != nullptr)
+	{
+		m_map_cell->setSelected(false);
+		m_map_cell = nullptr;
 	}
 }
 

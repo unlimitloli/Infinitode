@@ -1,5 +1,6 @@
 #include "GameMap.h"
 #include "MapCell.h"
+#include "Monster.h"
 
 USING_NS_CC;
 
@@ -46,6 +47,9 @@ bool GameMap::init()
 
 	setAnchorPoint(Vec2(0.5f, 0.5f));
 	setContentSize(Size(m_width * cell_width, m_height * cell_height));
+
+	Monster *monster = Monster::createWithId(1);
+	addChild(monster);
 
 	return true;
 }

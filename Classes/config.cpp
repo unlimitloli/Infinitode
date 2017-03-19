@@ -18,6 +18,7 @@ Config * Config::getInstance()
 void Config::loadConfig()
 {
 	loadConfigFromFile("config/tower_config.txt");
+	loadConfigFromFile("config/monster_config.txt");
 
 	loadConfigFromFile("config/i18n/string_tips.txt");
 }

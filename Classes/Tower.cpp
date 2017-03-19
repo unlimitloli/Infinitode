@@ -32,13 +32,6 @@ bool Tower::initWithId(int tower_id)
 	m_tower_sprite->setPosition(size.width / 2, size.height / 2);
 	addChild(m_tower_sprite);
 
-	m_range_sprite = Sprite::create("images/icon/range.png");
-	m_range_sprite->setPosition(size.width / 2, size.height / 2);
-	addChild(m_range_sprite);
-	m_range_sprite->setGlobalZOrder(100);
-	m_range_sprite->setScale(100.0f / 64.0f, 100.0f / 64.0f);
-	m_range_sprite->setVisible(false);
-
 	return true;
 }
 
@@ -51,5 +44,5 @@ void Tower::setSelected(bool select)
 
 void Tower::updateDraw()
 {
-	m_range_sprite->setVisible(m_is_selected);
+
 }

@@ -37,6 +37,13 @@ bool MapCell::init(int type)
 	addChild(m_select_sprite);
 	m_select_sprite->setVisible(false);
 
+	m_range_sprite = Sprite::create("images/icon/range.png");
+	m_range_sprite->setPosition(size.width / 2, size.height / 2);
+	addChild(m_range_sprite);
+	m_range_sprite->setGlobalZOrder(100);
+	m_range_sprite->setScale(100.0f / 64.0f, 100.0f / 64.0f);
+	m_range_sprite->setVisible(false);
+
 	setAnchorPoint(Vec2::ZERO);
 
 	auto listener = EventListenerTouchOneByOne::create();
@@ -88,6 +95,7 @@ void MapCell::setSelected(bool select)
 void MapCell::updateDraw()
 {
 	m_select_sprite->setVisible(m_is_selected);
+	m_range_sprite->setVisible(m_is_selected);
 	if (m_tower != nullptr)
 	{
 		m_tower->setSelected(m_is_selected);

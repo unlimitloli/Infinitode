@@ -61,6 +61,9 @@
     <Filter Include="src\commons\parse\i8n">
       <UniqueIdentifier>{48a3366f-1125-4690-bcd0-007a5002a1e1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\GameScene\Monster">
+      <UniqueIdentifier>{313b35e8-81dd-4db1-9311-a9ca953e5a0a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -122,6 +125,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\AttrCell.cpp">
       <Filter>src\GameScene\MenuLayer\cell</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Monster.cpp">
+      <Filter>src\GameScene\Monster</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -199,6 +205,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\I18N.h">
       <Filter>src\commons\parse\i8n</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Monster.h">
+      <Filter>src\GameScene\Monster</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
