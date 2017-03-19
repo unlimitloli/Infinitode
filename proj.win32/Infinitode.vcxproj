@@ -145,6 +145,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
+    <ClCompile Include="..\Classes\AttrCell.cpp" />
     <ClCompile Include="..\Classes\config.cpp" />
     <ClCompile Include="..\Classes\ConfigParse.cpp" />
     <ClCompile Include="..\Classes\csb_config.cpp" />
@@ -159,12 +160,14 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\StartLayer.cpp" />
     <ClCompile Include="..\Classes\string_utils.cpp" />
     <ClCompile Include="..\Classes\Tower.cpp" />
+    <ClCompile Include="..\Classes\TowerAttibute.cpp" />
     <ClCompile Include="..\Classes\TowerCell.cpp" />
     <ClCompile Include="..\Classes\Win.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h" />
+    <ClInclude Include="..\Classes\AttrCell.h" />
     <ClInclude Include="..\Classes\commons.h" />
     <ClInclude Include="..\Classes\config.h" />
     <ClInclude Include="..\Classes\ConfigParse.h" />
@@ -181,7 +184,10 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\StartLayer.h" />
     <ClInclude Include="..\Classes\string_utils.h" />
     <ClInclude Include="..\Classes\Tower.h" />
+    <ClInclude Include="..\Classes\TowerAttibute.h" />
     <ClInclude Include="..\Classes\TowerCell.h" />
+    <ClInclude Include="..\Classes\TowerData.h" />
+    <ClInclude Include="..\Classes\TowerDefine.h" />
     <ClInclude Include="..\Classes\Win.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>

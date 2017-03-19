@@ -1,6 +1,7 @@
 #include "MenuLayer.h"
 #include "MapCell.h"
 #include "TowerCell.h"
+#include "AttrCell.h"
 
 USING_NS_CC;
 using namespace ui;
@@ -136,6 +137,20 @@ void MenuLayer::showUpMenu()
 	Panel_select->setVisible(false);
 	Panel_up->setVisible(true);
 	Panel_tower->setVisible(false);
+
+	ListView *ListView_attr = dynamic_cast<ListView *>(Helper::seekWidgetByName(m_root, "ListView_attr"));
+	ListView_attr->removeAllItems();
+	ListView_attr->setScrollBarEnabled(false);
+
+	TowerAttribute attr(AttrType::AtkSpeed, 5);
+	for (int i = 0; i < 4; ++i)
+	{
+		auto cell = AttrCell::create(attr);
+		auto size = cell->getContentSize();
+		ListView_attr->addChild(cell);
+	}
+
+	ListView_attr->forceDoLayout();
 }
 
 void MenuLayer::updateTowerCell()

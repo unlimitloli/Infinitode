@@ -52,6 +52,12 @@
     <Filter Include="src\GameScene\MenuLayer\cell">
       <UniqueIdentifier>{8ea52a64-6523-4a0d-b2db-a1bb42b868f1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\GameScene\Tower\Data">
+      <UniqueIdentifier>{bd8cd2c5-7ebf-43b8-90c6-622effadd562}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\GameScene\Tower\Data\Attribute">
+      <UniqueIdentifier>{9c2690ed-eb4f-490f-b890-20050f770f54}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -107,6 +113,12 @@
     </ClCompile>
     <ClCompile Include="..\Classes\config.cpp">
       <Filter>src\commons\parse</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\TowerAttibute.cpp">
+      <Filter>src\GameScene\Tower\Data\Attribute</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AttrCell.cpp">
+      <Filter>src\GameScene\MenuLayer\cell</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -169,6 +181,18 @@
     </ClInclude>
     <ClInclude Include="..\Classes\config.h">
       <Filter>src\commons\parse</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\TowerData.h">
+      <Filter>src\GameScene\Tower\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\TowerDefine.h">
+      <Filter>src\GameScene\Tower\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\TowerAttibute.h">
+      <Filter>src\GameScene\Tower\Data\Attribute</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AttrCell.h">
+      <Filter>src\GameScene\MenuLayer\cell</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

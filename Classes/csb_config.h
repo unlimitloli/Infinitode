@@ -8,6 +8,7 @@ public:
 	char * menu_layer = "cocostudio/MenuLayer.csb";
 
 	char * tower_cell = "cocostudio/cells/tower_cell.csb";
+	char * attr_cell = "cocostudio/cells/attr_cell.csb";
 };
 
 extern CsbConfig csb_config;
