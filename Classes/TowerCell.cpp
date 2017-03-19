@@ -84,6 +84,9 @@ void TowerCell::updateDraw()
 
 void TowerCell::setSelected(bool flag)
 {
+	if (m_is_selected == flag)
+		return;
+	m_is_selected = flag;
 	ImageView *Image_select = dynamic_cast<ImageView *>(m_root->getChildByName("Image_select"));
 	Image_select->setVisible(flag);
 }

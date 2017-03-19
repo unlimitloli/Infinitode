@@ -16,6 +16,7 @@ public:
 protected:
 	int m_tower_id = 0;
 	bool m_is_lock = false;
+	bool m_is_selected = false;
 
 	cocos2d::ui::Widget *m_root;
 };

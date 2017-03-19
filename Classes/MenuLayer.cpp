@@ -40,6 +40,9 @@ void MenuLayer::show(MapCell *cell)
 	}
 	if (cell != m_map_cell)
 	{
+		if (m_map_cell != nullptr)
+			m_map_cell->setSelected(false);
+		cell->setSelected(true);
 		m_map_cell = cell;
 		showMenu();
 	}
@@ -50,6 +53,7 @@ void MenuLayer::hide()
 	if (m_is_show == true)
 	{
 		m_is_show = false;
+		m_map_cell = nullptr;
 		m_actions->play("hide", false);
 	}
 }
@@ -63,11 +67,25 @@ void MenuLayer::selectTower(int tower_id)
 		else
 			tower->setSelected(false);
 	}
+	if (tower_id > 0)
+	{
+		if (m_select_id == tower_id)
+		{
+			m_map_cell->buildTower(tower_id);
+			showUpMenu();
+		}
+		else
+		{
+			m_select_id = tower_id;
+			showSelectMenu();
+		}
+	}
 }
 
 void MenuLayer::showMenu()
 {
-	if ((m_map_cell == nullptr) || (m_map_cell->getState() == 0))
+	selectTower(0);
+	if ((m_map_cell == nullptr) || (m_map_cell->getTowerId() == 0))
 	{
 		showNewMenu();
 	}
@@ -80,6 +98,7 @@ void MenuLayer::showMenu()
 void MenuLayer::showNewMenu()
 {
 	m_menu_type = 0;
+	m_select_id = 0;
 	auto Panel_new = Helper::seekWidgetByName(m_root, "Panel_new");
 	auto Panel_select = Helper::seekWidgetByName(m_root, "Panel_select");
 	auto Panel_up = Helper::seekWidgetByName(m_root, "Panel_up");

@@ -3,6 +3,7 @@
 
 class GameLayer;
 class MenuLayer;
+class MapCell;
 
 #define _game		GameManager::getInstance()
 
@@ -20,7 +21,7 @@ public:
 	GameLayer *getGameLayer();
 	MenuLayer *getMenuLayer();
 
-	void openMenu();
+	void openMenu(MapCell *map_cell);
 
 protected:
 	virtual bool init() override;

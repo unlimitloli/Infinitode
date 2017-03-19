@@ -21,6 +21,7 @@ protected:
 
 	bool m_is_show = false;
 	int m_menu_type = 0;
+	int m_select_id = 0;
 
 	MapCell *m_map_cell = nullptr;
 	cocos2d::Vector<TowerCell *> m_towers;
