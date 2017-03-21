@@ -11,6 +11,7 @@ public:
 
 	virtual void setSpeed(float speed);
 	virtual void move(float dt) = 0;
+	void setEndCallback(std::function<void()> end_call = nullptr);
 
 	virtual ~MoveControlProtocol();
 
@@ -25,8 +26,9 @@ protected:
 	bool m_is_end = false;
 
 	TRANSFORM_FUNC m_transform = nullptr;
+	std::function<void()> m_end_call = nullptr;
 
 protected:
-	virtual void onStart();
-	virtual void transformDirection();
+	virtual void onStart() {};
+	virtual void onEnd();
 };
