@@ -67,6 +67,12 @@
     <Filter Include="src\GameScene\Monster\MonsterManager">
       <UniqueIdentifier>{f484817b-9ec9-4107-8ff8-a50f1297f2c2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\GameScene\Monster\MoveControl">
+      <UniqueIdentifier>{27c9733f-ea24-4118-838e-39a70e03bf88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\GameScene\Monster\MoveControl\SimpleMoveControl">
+      <UniqueIdentifier>{860f1423-7d24-469c-8e33-0ec871c23bd9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -137,6 +143,12 @@
     </ClCompile>
     <ClCompile Include="..\Classes\MonsterManager.cpp">
       <Filter>src\GameScene\Monster\MonsterManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MoveControlProtocol.cpp">
+      <Filter>src\GameScene\Monster\MoveControl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\SimleMoveControl.cpp">
+      <Filter>src\GameScene\Monster\MoveControl\SimpleMoveControl</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -223,6 +235,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\MonsterPool.h">
       <Filter>src\GameScene\Monster\MonsterManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MoveControlProtocol.h">
+      <Filter>src\GameScene\Monster\MoveControl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SimpleMoveControl.h">
+      <Filter>src\GameScene\Monster\MoveControl\SimpleMoveControl</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -1,5 +1,6 @@
 #include "MonsterManager.h"
 #include <queue>
+#include "MapCell.h"
 
 USING_NS_CC;
 using namespace std;
@@ -10,9 +11,6 @@ bool MonsterManager::init()
 		return false;
 
 	m_pool.reset(20);
-
-	auto monster = m_pool.createMonster(1);
-	addChild(monster);
 
 	return true;
 }
@@ -86,8 +84,17 @@ void MonsterManager::parseMap(const std::vector<int> maps, int width, int height
 	}
 	path.push_back(start_pos);
 	for_each(path.rbegin(), path.rend(), [&](int pos) {
-		m_path.push_back(Vec2(pos / m_width, pos % m_width));
+		m_path.push_back(Vec2(pos % m_width, pos / m_width));
 	});
+
+	auto monster = m_pool.createMonster(1);
+	addChild(monster);
+	monster->runWithPath(m_path, CC_CALLBACK_1(MonsterManager::transformPos, this));
+}
+
+cocos2d::Vec2 MonsterManager::transformPos(const cocos2d::Vec2 & pos)
+{
+	return cocos2d::Vec2(pos.x * CELL_WIDTH, (m_height - 1 - pos.y) * CELL_HEIGHT);
 }
 
 bool MonsterManager::checkPos(int pos)
@@ -96,7 +103,7 @@ bool MonsterManager::checkPos(int pos)
 	int col = pos % m_width;
 	if ((row < 0) || (row >= m_height) || (col < 0) || (col >= m_width))
 		return false;
-	if ((m_maps[pos] == 3) || (m_maps[pos] == 2))
+	if ((m_maps[pos] == (int)MapType::road) || (m_maps[pos] == (int)MapType::end))
 		return true;
 	return false;
 }

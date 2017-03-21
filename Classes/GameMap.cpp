@@ -4,9 +4,6 @@
 
 USING_NS_CC;
 
-const int cell_width = 32;
-const int cell_height = 32;
-
 GameMap * GameMap::create()
 {
 	auto layer = new GameMap();
@@ -42,7 +39,7 @@ bool GameMap::init()
 			if (type > 0)
 			{
 				auto cell = MapCell::create(type);
-				cell->setPosition(col * cell_width, (m_height - 1- row) * cell_height);
+				cell->setPosition(col * CELL_WIDTH, (m_height - 1- row) * CELL_HEIGHT);
 				addChild(cell);
 
 				m_map_cells[row * m_width + col] = cell;
@@ -52,7 +49,7 @@ bool GameMap::init()
 	}
 
 	setAnchorPoint(Vec2(0.5f, 0.5f));
-	setContentSize(Size(m_width * cell_width, m_height * cell_height));
+	setContentSize(Size(m_width * CELL_WIDTH, m_height * CELL_HEIGHT));
 
 	MonsterManager *monster = MonsterManager::create();
 	addChild(monster);

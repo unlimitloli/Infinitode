@@ -2,6 +2,17 @@
 #include "commons.h"
 #include "Tower.h"
 
+enum class MapType
+{
+	start = 1,
+	end = 2,
+	road = 3,
+	tower = 4,
+};
+
+const int CELL_WIDTH = 32;
+const int CELL_HEIGHT = 32;
+
 class MapCell : public cocos2d::Node
 {
 public:

@@ -1,4 +1,5 @@
 #include "Monster.h"
+#include "SimpleMoveControl.h"
 
 USING_NS_CC;
 using namespace ui;
@@ -71,4 +72,11 @@ void Monster::clearUI()
 	ListView *ListView_buff = dynamic_cast<ListView *>(m_root->getChildByName("ListView_buff"));
 
 	ListView_buff->removeAllItems();
+}
+
+void Monster::runWithPath(const std::vector<cocos2d::Vec2>& path, MoveControlProtocol::TRANSFORM_FUNC tranform)
+{
+	m_path = path;
+	m_move_control = new SimpleMoveControl(this);
+	m_move_control->startWithPath(path, tranform);
 }

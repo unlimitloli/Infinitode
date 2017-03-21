@@ -78,3 +78,4 @@ void GameManager::openMenu(MapCell *map_cell)
 {
 	m_menu_layer->show(map_cell);
 }
+

@@ -20,6 +20,8 @@ protected:
 	cocos2d::Vec2 m_end_pos;
 	std::vector<cocos2d::Vec2> m_path;
 
+
+	cocos2d::Vec2 transformPos(const cocos2d::Vec2 &pos);
 protected:
 	bool checkPos(int pos);
 };
