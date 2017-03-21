@@ -76,6 +76,9 @@
     <Filter Include="src\GameScene\Bullet">
       <UniqueIdentifier>{6411c118-6777-4d2e-b3eb-000c2c970ce8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\GameScene\Bullet\BulletManager">
+      <UniqueIdentifier>{7f1cedfa-96f4-4b97-ae3b-8d2e60810119}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -155,6 +158,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Bullet.cpp">
       <Filter>src\GameScene\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\BulletManager.cpp">
+      <Filter>src\GameScene\Bullet\BulletManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -250,6 +256,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Bullet.h">
       <Filter>src\GameScene\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\BulletManager.h">
+      <Filter>src\GameScene\Bullet\BulletManager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

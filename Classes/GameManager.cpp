@@ -2,6 +2,7 @@
 #include "GameLayer.h"
 #include "MenuLayer.h"
 #include "MapCell.h"
+#include "GameMap.h"
 
 USING_NS_CC;
 
@@ -72,6 +73,16 @@ GameLayer * GameManager::getGameLayer()
 MenuLayer * GameManager::getMenuLayer()
 {
 	return m_menu_layer;
+}
+
+MonsterManager * GameManager::getMonsterManager()
+{
+	return m_game_layer->getGameMap()->getMonsterManager();
+}
+
+BulletManager * GameManager::getBulletManager()
+{
+	return m_game_layer->getGameMap()->getBulletManager();;
 }
 
 void GameManager::openMenu(MapCell *map_cell)

@@ -4,6 +4,8 @@
 class GameLayer;
 class MenuLayer;
 class MapCell;
+class MonsterManager;
+class BulletManager;
 
 #define _game		GameManager::getInstance()
 
@@ -20,6 +22,8 @@ public:
 
 	GameLayer *getGameLayer();
 	MenuLayer *getMenuLayer();
+	MonsterManager *getMonsterManager();
+	BulletManager *getBulletManager();
 
 	void openMenu(MapCell *map_cell);
 

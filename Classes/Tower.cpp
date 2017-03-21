@@ -1,4 +1,6 @@
 #include "Tower.h"
+#include "MonsterManager.h"
+#include "BulletManager.h"
 
 USING_NS_CC;
 
@@ -32,6 +34,8 @@ bool Tower::initWithId(int tower_id)
 	m_tower_sprite->setPosition(size.width / 2, size.height / 2);
 	addChild(m_tower_sprite);
 
+	//scheduleUpdate();
+
 	return true;
 }
 
@@ -45,4 +49,25 @@ void Tower::setSelected(bool select)
 void Tower::updateDraw()
 {
 
+}
+
+void Tower::shoot()
+{
+	auto monster = _game->getMonsterManager()->getMonster();
+	auto bullet = _game->getBulletManager()->createBullet(1);
+	bullet->setTarget(monster);
+
+	Vec2 pos = getPosition() + getParent()->getPosition();
+	bullet->setPosition(pos);
+}
+
+void Tower::update(float dt)
+{
+	static time_t last_time = time(nullptr);
+	if (time(nullptr) - last_time >= 3)
+	{
+		auto monster = _game->getMonsterManager()->getMonster();
+		auto bullet = _game->getBulletManager()->createBullet(1);
+		bullet->setTarget(monster);
+	}
 }

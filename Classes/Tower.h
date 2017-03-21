@@ -9,6 +9,9 @@ public:
 
 	void setSelected(bool select);
 	void updateDraw();
+	void shoot();
+
+	virtual void update(float dt) override;
 
 protected:
 	int m_tower_id = 0;

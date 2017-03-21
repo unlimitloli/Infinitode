@@ -1,6 +1,7 @@
 #include "GameMap.h"
 #include "MapCell.h"
 #include "MonsterManager.h"
+#include "BulletManager.h"
 
 USING_NS_CC;
 
@@ -51,10 +52,22 @@ bool GameMap::init()
 	setAnchorPoint(Vec2(0.5f, 0.5f));
 	setContentSize(Size(m_width * CELL_WIDTH, m_height * CELL_HEIGHT));
 
-	MonsterManager *monster = MonsterManager::create();
-	addChild(monster);
+	m_monster_manager = MonsterManager::create();
+	addChild(m_monster_manager);
+	m_monster_manager->parseMap(m_maps, m_width, m_height);
 
-	monster->parseMap(m_maps, m_width, m_height);
+	m_bullet_manager = BulletManager::create();
+	addChild(m_bullet_manager);
 
 	return true;
+}
+
+MonsterManager * GameMap::getMonsterManager()
+{
+	return m_monster_manager;
+}
+
+BulletManager * GameMap::getBulletManager()
+{
+	return m_bullet_manager;
 }

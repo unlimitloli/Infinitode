@@ -147,6 +147,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\AttrCell.cpp" />
     <ClCompile Include="..\Classes\Bullet.cpp" />
+    <ClCompile Include="..\Classes\BulletManager.cpp" />
     <ClCompile Include="..\Classes\config.cpp" />
     <ClCompile Include="..\Classes\ConfigParse.cpp" />
     <ClCompile Include="..\Classes\csb_config.cpp" />
@@ -175,6 +176,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\AttrCell.h" />
     <ClInclude Include="..\Classes\Bullet.h" />
+    <ClInclude Include="..\Classes\BulletManager.h" />
     <ClInclude Include="..\Classes\commons.h" />
     <ClInclude Include="..\Classes\config.h" />
     <ClInclude Include="..\Classes\ConfigParse.h" />

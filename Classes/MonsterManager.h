@@ -11,6 +11,8 @@ public:
 
 	virtual void update(float dt) override;
 
+	Monster *getMonster();
+
 protected:
 	MonsterPool m_pool;
 

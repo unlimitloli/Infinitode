@@ -114,3 +114,8 @@ void MonsterManager::update(float dt)
 {
 	m_monster->moveToNext(dt);
 }
+
+Monster * MonsterManager::getMonster()
+{
+	return m_monster;;
+}

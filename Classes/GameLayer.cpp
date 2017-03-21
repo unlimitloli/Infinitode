@@ -24,17 +24,22 @@ bool GameLayer::init()
 	auto scroll_view = dynamic_cast<ScrollView *>(m_root->getChildByName("ScrollView_map"));
 	scroll_view->removeAllChildrenWithCleanup(true);
 	scroll_view->setScrollBarEnabled(false);
-	auto game_map = GameMap::create();
-	scroll_view->addChild(game_map);
+	m_game_map = GameMap::create();
+	scroll_view->addChild(m_game_map);
 
-	auto map_size = game_map->getContentSize();
+	auto map_size = m_game_map->getContentSize();
 	auto scroll_size = scroll_view->getContentSize();
 	Size size;
 	size.width = max(map_size.width, scroll_size.width);
 	size.height = max(map_size.height, scroll_size.height);
 
-	game_map->setPosition(scroll_size.width / 2, scroll_size.height / 2);
+	m_game_map->setPosition(scroll_size.width / 2, scroll_size.height / 2);
 	scroll_view->setInnerContainerSize(size);
 
 	return true;
+}
+
+GameMap * GameLayer::getGameMap()
+{
+	return m_game_map;
 }
