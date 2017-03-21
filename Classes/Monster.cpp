@@ -37,6 +37,9 @@ bool Monster::initWithId(int monster_id)
 		m_root->removeFromParentAndCleanup(false);
 		addChild(m_root);
 
+		setContentSize(m_root->getContentSize());
+		setAnchorPoint(Vec2(0.5f, 0.5f));
+
 		updateDraw();
 		return true;
 	} while (false);
@@ -79,4 +82,13 @@ void Monster::runWithPath(const std::vector<cocos2d::Vec2>& path, MoveControlPro
 	m_path = path;
 	m_move_control = new SimpleMoveControl(this);
 	m_move_control->startWithPath(path, tranform);
+	m_move_control->setSpeed(20.0f);
+}
+
+void Monster::moveToNext(float dt)
+{
+	if (m_move_control != nullptr)
+	{
+		m_move_control->move(dt);
+	}
 }

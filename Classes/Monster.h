@@ -14,6 +14,7 @@ public:
 	void clearUI();
 
 	void runWithPath(const std::vector<cocos2d::Vec2> &path, MoveControlProtocol::TRANSFORM_FUNC tranform = nullptr);
+	void moveToNext(float dt);
 
 protected:
 	int m_monster_id = 0;

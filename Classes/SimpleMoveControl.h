@@ -7,5 +7,4 @@ public:
 	using MoveControlProtocol::MoveControlProtocol;
 
 	virtual void move(float dt) override;
-	virtual void onStart() override;
 };

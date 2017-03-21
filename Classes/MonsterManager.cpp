@@ -87,14 +87,16 @@ void MonsterManager::parseMap(const std::vector<int> maps, int width, int height
 		m_path.push_back(Vec2(pos % m_width, pos / m_width));
 	});
 
-	auto monster = m_pool.createMonster(1);
-	addChild(monster);
-	monster->runWithPath(m_path, CC_CALLBACK_1(MonsterManager::transformPos, this));
+	m_monster = m_pool.createMonster(2);
+	addChild(m_monster);
+	m_monster->runWithPath(m_path, CC_CALLBACK_1(MonsterManager::transformPos, this));
+
+	scheduleUpdate();
 }
 
 cocos2d::Vec2 MonsterManager::transformPos(const cocos2d::Vec2 & pos)
 {
-	return cocos2d::Vec2(pos.x * CELL_WIDTH, (m_height - 1 - pos.y) * CELL_HEIGHT);
+	return cocos2d::Vec2(pos.x * CELL_WIDTH + CELL_WIDTH / 2, (m_height - 1 - pos.y) * CELL_HEIGHT + CELL_HEIGHT / 2);
 }
 
 bool MonsterManager::checkPos(int pos)
@@ -106,4 +108,9 @@ bool MonsterManager::checkPos(int pos)
 	if ((m_maps[pos] == (int)MapType::road) || (m_maps[pos] == (int)MapType::end))
 		return true;
 	return false;
+}
+
+void MonsterManager::update(float dt)
+{
+	m_monster->moveToNext(dt);
 }

@@ -9,6 +9,8 @@ public:
 	virtual bool init() override;
 	void parseMap(const std::vector<int> maps, int width, int height);
 
+	virtual void update(float dt) override;
+
 protected:
 	MonsterPool m_pool;
 
@@ -19,7 +21,7 @@ protected:
 	cocos2d::Vec2 m_start_pos;
 	cocos2d::Vec2 m_end_pos;
 	std::vector<cocos2d::Vec2> m_path;
-
+	Monster *m_monster = nullptr;
 
 	cocos2d::Vec2 transformPos(const cocos2d::Vec2 &pos);
 protected:

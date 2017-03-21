@@ -9,6 +9,7 @@ public:
 	MoveControlProtocol(cocos2d::Node *node);
 	virtual void startWithPath(const std::vector<cocos2d::Vec2> &path, TRANSFORM_FUNC transform = nullptr);
 
+	virtual void setSpeed(float speed);
 	virtual void move(float dt) = 0;
 
 	virtual ~MoveControlProtocol();
@@ -19,9 +20,13 @@ protected:
 
 	int m_direction = 0;		//  运动方向，0：向上，1：向右，2：向下，3：向左
 	int m_pos = 0;
+	float m_speed = 0.0f;
+
+	bool m_is_end = false;
 
 	TRANSFORM_FUNC m_transform = nullptr;
 
 protected:
-	virtual void onStart() {};
+	virtual void onStart();
+	virtual void transformDirection();
 };
