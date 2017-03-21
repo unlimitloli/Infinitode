@@ -73,6 +73,9 @@
     <Filter Include="src\GameScene\MoveControl\SimpleMoveControl">
       <UniqueIdentifier>{860f1423-7d24-469c-8e33-0ec871c23bd9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\GameScene\Bullet">
+      <UniqueIdentifier>{6411c118-6777-4d2e-b3eb-000c2c970ce8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -149,6 +152,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\SimleMoveControl.cpp">
       <Filter>src\GameScene\MoveControl\SimpleMoveControl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Bullet.cpp">
+      <Filter>src\GameScene\Bullet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -241,6 +247,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\SimpleMoveControl.h">
       <Filter>src\GameScene\MoveControl\SimpleMoveControl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Bullet.h">
+      <Filter>src\GameScene\Bullet</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
