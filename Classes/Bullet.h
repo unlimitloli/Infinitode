@@ -1,6 +1,8 @@
 #pragma once
 #include "commons.h"
 
+class Monster;
+
 class Bullet : public cocos2d::Sprite
 {
 public:
@@ -8,7 +10,7 @@ public:
 	bool init(int bullet_id);
 
 	void setBulletId(int bullet_id = 0);
-	void setTarget(cocos2d::Node *target);
+	void setTarget(Monster *target);
 
 	virtual void update(float dt) override;
 
@@ -16,5 +18,5 @@ protected:
 	int m_bullet_id = 0;
 	float m_speed = 30.0f;
 
-	cocos2d::Node *m_target = nullptr;
+	Monster *m_target = nullptr;
 };

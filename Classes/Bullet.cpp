@@ -1,4 +1,5 @@
 #include "Bullet.h"
+#include "Monster.h"
 
 USING_NS_CC;
 using namespace std;
@@ -42,7 +43,7 @@ void Bullet::setBulletId(int bullet_id)
 	}
 }
 
-void Bullet::setTarget(cocos2d::Node * target)
+void Bullet::setTarget(Monster * target)
 {
 	m_target = target;
 	scheduleUpdate();
