@@ -1,5 +1,6 @@
 #include "Bullet.h"
 #include "Monster.h"
+#include "BulletManager.h"
 
 USING_NS_CC;
 using namespace std;
@@ -49,6 +50,11 @@ void Bullet::setTarget(Monster * target)
 	scheduleUpdate();
 }
 
+void Bullet::onHit()
+{
+	_game->getBulletManager()->freeBullet(this);
+}
+
 void Bullet::update(float dt)
 {
 	if (m_target == nullptr)
@@ -67,5 +73,9 @@ void Bullet::update(float dt)
 	if (fabs(offset_y) < FLT_EPSILON)
 		offset_y = 0.0f;
 
-	setPosition(Vec2(current_pos.x + offset_x, current_pos.y + offset_y));
+	auto new_pos = Vec2(current_pos.x + offset_x, current_pos.y + offset_y);
+	setPosition(new_pos);
+
+	if (m_target->checkHit(new_pos))
+		onHit();
 }

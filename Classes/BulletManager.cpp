@@ -17,10 +17,12 @@ Bullet * BulletManager::createBullet(int bullet_id)
 	{
 		auto bullet = Bullet::create(bullet_id);
 		addChild(bullet);
+		bullet->setVisible(false);
 		m_free.pushBack(bullet);
 	}
 	auto bullet = m_free.back();
 	bullet->setBulletId(bullet_id);
+	bullet->setVisible(true);
 	m_used.pushBack(bullet);
 	m_free.popBack();
 	return bullet;
@@ -30,6 +32,7 @@ void BulletManager::freeBullet(Bullet * bullet)
 {
 	if (m_used.contains(bullet))
 	{
+		//bullet->setVisible(false);
 		m_free.pushBack(bullet);
 		m_used.eraseObject(bullet);
 	}

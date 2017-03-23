@@ -72,7 +72,6 @@ void MapCell::buildTower(int tower_id)
 	m_tower = Tower::createWithId(tower_id);
 	m_tower->setPosition(getContentSize().width / 2, getContentSize().height / 2);
 	addChild(m_tower);
-	m_tower->shoot();
 }
 
 void MapCell::removeTower()

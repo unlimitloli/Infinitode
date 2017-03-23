@@ -68,7 +68,7 @@ void SimpleMoveControl::move(float dt)
 			transformDirection();
 			if (current_dir != m_direction)
 			{
-				onTransDirection();
+				onTransDirection(0.2f);
 			}
 		}
 		
@@ -84,7 +84,7 @@ void SimpleMoveControl::onStart()
 		start_pos = m_transform(start_pos);
 	m_node->setPosition(start_pos.x, start_pos.y);
 	transformDirection();
-	m_node->setRotation(90 * m_direction);
+	onTransDirection();
 }
 
 void SimpleMoveControl::transformDirection()
@@ -110,9 +110,12 @@ void SimpleMoveControl::transformDirection()
 	}
 }
 
-void SimpleMoveControl::onTransDirection()
+void SimpleMoveControl::onTransDirection(float dt)
 {
-	m_node->runAction(RotateTo::create(0.2f, 90 * m_direction));
+	if (dt > 0)
+		m_node->runAction(RotateTo::create(dt, 90 * m_direction));
+	else
+		m_node->setRotation(90 * m_direction);
 }
 
 

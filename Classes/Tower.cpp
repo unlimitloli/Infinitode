@@ -34,7 +34,8 @@ bool Tower::initWithId(int tower_id)
 	m_tower_sprite->setPosition(size.width / 2, size.height / 2);
 	addChild(m_tower_sprite);
 
-	//scheduleUpdate();
+	m_last_time = time(nullptr);
+	scheduleUpdate();
 
 	return true;
 }
@@ -63,11 +64,9 @@ void Tower::shoot()
 
 void Tower::update(float dt)
 {
-	static time_t last_time = time(nullptr);
-	if (time(nullptr) - last_time >= 3)
+	if (time(nullptr) - m_last_time >= 3)
 	{
-		auto monster = _game->getMonsterManager()->getMonster();
-		auto bullet = _game->getBulletManager()->createBullet(1);
-		bullet->setTarget(monster);
+		m_last_time = time(nullptr);
+		shoot();
 	}
 }

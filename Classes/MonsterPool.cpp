@@ -52,6 +52,18 @@ void MonsterPool::freeMonster(Monster * monster)
 
 }
 
+cocos2d::Vector<Monster*>& MonsterPool::getFreeMonster()
+{
+	// TODO: 在此处插入 return 语句
+	return m_free;
+}
+
+cocos2d::Vector<Monster*>& MonsterPool::getUsedMonster()
+{
+	// TODO: 在此处插入 return 语句
+	return m_used;
+}
+
 void MonsterPool::extand(int size)
 {
 	for (int i = 0; i < size; ++i)

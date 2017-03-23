@@ -112,6 +112,11 @@ bool MonsterManager::checkPos(int pos)
 
 void MonsterManager::update(float dt)
 {
+	for (auto monster : m_pool.getUsedMonster())
+	{
+		if (!monster->isAlive())
+			m_pool.freeMonster(monster);
+	}
 	m_monster->moveToNext(dt);
 }
 

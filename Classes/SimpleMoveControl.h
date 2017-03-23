@@ -12,5 +12,5 @@ protected:
 	virtual void onStart() override;
 	virtual void transformDirection();
 
-	virtual void onTransDirection();
+	virtual void onTransDirection(float dt = 0.0f);
 };

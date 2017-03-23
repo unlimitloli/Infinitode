@@ -1,5 +1,7 @@
 #include "Monster.h"
 #include "SimpleMoveControl.h"
+#include "MonsterManager.h"
+#include "MonsterMoveControl.h"
 
 USING_NS_CC;
 using namespace ui;
@@ -61,11 +63,13 @@ void Monster::updateDraw()
 void Monster::reload(int monster_id)
 {
 	m_monster_id = monster_id;
+	m_is_alive = true;
 	updateDraw();
 }
 
 void Monster::unload()
 {
+	m_is_alive = false;
 	clearUI();
 }
 
@@ -80,7 +84,7 @@ void Monster::clearUI()
 void Monster::runWithPath(const std::vector<cocos2d::Vec2>& path, MoveControlProtocol::TRANSFORM_FUNC tranform)
 {
 	m_path = path;
-	m_move_control = new SimpleMoveControl(this);
+	m_move_control = new MonsterMoveControl(this);
 	m_move_control->startWithPath(path, tranform);
 	m_move_control->setSpeed(20.0f);
 }
@@ -91,4 +95,26 @@ void Monster::moveToNext(float dt)
 	{
 		m_move_control->move(dt);
 	}
+}
+
+bool Monster::isAlive() const
+{
+	return m_is_alive;
+}
+
+bool Monster::checkHit(const cocos2d::Vec2 & pos)
+{
+	auto rect = getBoundingBox();
+	if (rect.containsPoint(pos))
+		return true;
+	return false;
+}
+
+void Monster::rotateToAngle(float angle, float dt)
+{
+	Sprite *Sprite_monster = dynamic_cast<Sprite *>(m_root->getChildByName("Sprite_monster"));
+	if (dt > 0)
+		Sprite_monster->runAction(RotateTo::create(0.2f, angle));
+	else
+		Sprite_monster->setRotation(angle);
 }

@@ -79,6 +79,9 @@
     <Filter Include="src\GameScene\Bullet\BulletManager">
       <UniqueIdentifier>{7f1cedfa-96f4-4b97-ae3b-8d2e60810119}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\GameScene\MoveControl\MonsterMoveControl">
+      <UniqueIdentifier>{e3eaee7d-8197-4195-99ff-18efd2ac5166}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -161,6 +164,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\BulletManager.cpp">
       <Filter>src\GameScene\Bullet\BulletManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MonsterMoveControl.cpp">
+      <Filter>src\GameScene\MoveControl\MonsterMoveControl</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -259,6 +265,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\BulletManager.h">
       <Filter>src\GameScene\Bullet\BulletManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MonsterMoveControl.h">
+      <Filter>src\GameScene\MoveControl\MonsterMoveControl</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

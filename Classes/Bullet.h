@@ -12,6 +12,8 @@ public:
 	void setBulletId(int bullet_id = 0);
 	void setTarget(Monster *target);
 
+	virtual void onHit();
+
 	virtual void update(float dt) override;
 
 protected:

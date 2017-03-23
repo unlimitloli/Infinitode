@@ -17,4 +17,6 @@ protected:
 	int m_tower_id = 0;
 	bool m_is_selected = false;
 	cocos2d::Sprite *m_tower_sprite = nullptr;
+
+	time_t m_last_time;
 };
