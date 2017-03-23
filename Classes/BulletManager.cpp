@@ -8,6 +8,8 @@ bool BulletManager::init()
 	if (!Node::init())
 		return false;
 
+	scheduleUpdate();
+
 	return true;
 }
 
@@ -32,8 +34,26 @@ void BulletManager::freeBullet(Bullet * bullet)
 {
 	if (m_used.contains(bullet))
 	{
-		//bullet->setVisible(false);
+		bullet->setVisible(false);
 		m_free.pushBack(bullet);
 		m_used.eraseObject(bullet);
 	}
+}
+
+void BulletManager::update(float dt)
+{
+	cocos2d::Vector<Bullet *> push_free;
+	for (auto bullet : m_used)
+	{
+		bullet->update(dt);
+		if (!bullet->isUsed())
+			push_free.pushBack(bullet);
+	}
+
+	for (auto bullet : push_free)
+	{
+		freeBullet(bullet);
+	}
+	push_free.clear();
+	
 }

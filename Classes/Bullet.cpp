@@ -47,12 +47,18 @@ void Bullet::setBulletId(int bullet_id)
 void Bullet::setTarget(Monster * target)
 {
 	m_target = target;
-	scheduleUpdate();
+	m_is_used = true;
+}
+
+bool Bullet::isUsed() const
+{
+	return m_is_used;
 }
 
 void Bullet::onHit()
 {
-	_game->getBulletManager()->freeBullet(this);
+	m_target = nullptr;
+	m_is_used = false;
 }
 
 void Bullet::update(float dt)

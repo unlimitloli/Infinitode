@@ -11,6 +11,8 @@ public:
 	Bullet * createBullet(int bullet_id);
 	void freeBullet(Bullet *bullet);
 
+	virtual void update(float dt) override;
+
 protected:
 	cocos2d::Vector<Bullet *> m_free;
 	cocos2d::Vector<Bullet *> m_used;

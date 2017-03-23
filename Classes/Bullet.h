@@ -11,6 +11,7 @@ public:
 
 	void setBulletId(int bullet_id = 0);
 	void setTarget(Monster *target);
+	bool isUsed() const;
 
 	virtual void onHit();
 
@@ -19,6 +20,7 @@ public:
 protected:
 	int m_bullet_id = 0;
 	float m_speed = 30.0f;
+	bool m_is_used = false;
 
 	Monster *m_target = nullptr;
 };
