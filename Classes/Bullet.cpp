@@ -83,5 +83,13 @@ void Bullet::update(float dt)
 	setPosition(new_pos);
 
 	if (m_target->checkHit(new_pos))
+	{
+		m_target->beHited(this);
 		onHit();
+	}
+}
+
+float Bullet::getDamager() const
+{
+	return m_damage;
 }

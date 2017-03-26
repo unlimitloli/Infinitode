@@ -40,6 +40,7 @@ Monster * MonsterPool::createMonster(int monster_id)
 void MonsterPool::freeMonster(Monster * monster)
 {
 	monster->unload();
+	monster->removeFromParentAndCleanup(false);
 
 	if (!m_free.contains(monster))
 	{

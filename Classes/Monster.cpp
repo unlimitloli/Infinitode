@@ -2,6 +2,7 @@
 #include "SimpleMoveControl.h"
 #include "MonsterManager.h"
 #include "MonsterMoveControl.h"
+#include "Bullet.h"
 
 USING_NS_CC;
 using namespace ui;
@@ -43,6 +44,7 @@ bool Monster::initWithId(int monster_id)
 		setAnchorPoint(Vec2(0.5f, 0.5f));
 
 		updateDraw();
+		updateHp();
 		return true;
 	} while (false);
 
@@ -58,6 +60,13 @@ void Monster::updateDraw()
 	int pic = _config_int("monster_config", m_monster_id, monster_config::pic);
 
 	Sprite_monster->setTexture(StringUtils::format("images/monster/monster_%d.png", pic));
+}
+
+void Monster::updateHp()
+{
+	auto LoadingBar_hp = dynamic_cast<LoadingBar *>(Helper::seekWidgetByName(m_root, "LoadingBar_hp"));
+	float percent = (m_hp * 100) / m_max_hp;
+	LoadingBar_hp->setPercent(percent);
 }
 
 void Monster::reload(int monster_id)
@@ -85,7 +94,7 @@ void Monster::runWithPath(const std::vector<cocos2d::Vec2>& path, MoveControlPro
 {
 	m_path = path;
 	m_move_control = new MonsterMoveControl(this);
-	m_move_control->startWithPath(path, tranform);
+	m_move_control->startWithPath(path, tranform, CC_CALLBACK_0(Monster::arrivedEnd, this));
 	m_move_control->setSpeed(20.0f);
 }
 
@@ -95,6 +104,11 @@ void Monster::moveToNext(float dt)
 	{
 		m_move_control->move(dt);
 	}
+}
+
+void Monster::arrivedEnd()
+{
+	onDead();
 }
 
 bool Monster::isAlive() const
@@ -117,4 +131,23 @@ void Monster::rotateToAngle(float angle, float dt)
 		Sprite_monster->runAction(RotateTo::create(0.2f, angle));
 	else
 		Sprite_monster->setRotation(angle);
+}
+
+void Monster::beHited(Bullet * bullet)
+{
+	float damage = bullet->getDamager();
+	m_hp -= damage;
+	updateHp();
+
+	if (m_hp <= 0.0f)
+	{
+		onDead();
+	}
+
+	onBeHited();
+}
+
+void Monster::onDead()
+{
+	unload();
 }

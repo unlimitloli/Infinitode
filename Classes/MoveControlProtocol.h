@@ -6,8 +6,9 @@ class MoveControlProtocol
 {
 public:
 	using TRANSFORM_FUNC = std::function<cocos2d::Vec2(const cocos2d::Vec2 &)>;
+	using END_FUNC = std::function<void()>;
 	MoveControlProtocol(cocos2d::Node *node);
-	virtual void startWithPath(const std::vector<cocos2d::Vec2> &path, TRANSFORM_FUNC transform = nullptr);
+	virtual void startWithPath(const std::vector<cocos2d::Vec2> &path, TRANSFORM_FUNC transform = nullptr, END_FUNC end_call = nullptr);
 
 	virtual void setSpeed(float speed);
 	virtual void move(float dt) = 0;
@@ -26,7 +27,7 @@ protected:
 	bool m_is_end = false;
 
 	TRANSFORM_FUNC m_transform = nullptr;
-	std::function<void()> m_end_call = nullptr;
+	END_FUNC m_end_call = nullptr;
 
 protected:
 	virtual void onStart() {};
