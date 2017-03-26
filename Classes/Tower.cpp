@@ -1,6 +1,7 @@
 #include "Tower.h"
 #include "MonsterManager.h"
 #include "BulletManager.h"
+#include "MapCell.h"
 
 USING_NS_CC;
 
@@ -54,19 +55,54 @@ void Tower::updateDraw()
 
 void Tower::shoot()
 {
-	auto monster = _game->getMonsterManager()->getMonster();
-	auto bullet = _game->getBulletManager()->createBullet(1);
-	bullet->setTarget(monster);
+	auto monsters = _game->getMonsterManager()->getMonsters();
+	auto monster = seachTarget(monsters);
+	if (monster != nullptr)
+	{
+		auto bullet = _game->getBulletManager()->createBullet(1);
+		bullet->setTarget(monster);
 
-	Vec2 pos = getPosition() + getParent()->getPosition();
-	bullet->setPosition(pos);
+		Vec2 pos = getPosition() + getParent()->getPosition();
+		bullet->setPosition(pos);
+
+		m_state = TowerState::CoolDown;
+	}
 }
 
 void Tower::update(float dt)
 {
-	if (time(nullptr) - m_last_time >= 3)
+	float cd_time = 2.0f;
+
+	m_timer += dt;
+	switch (m_state)
 	{
-		m_last_time = time(nullptr);
+	case TowerState::Ready:
+		m_last_time = m_timer;
 		shoot();
+		break;
+	case TowerState::CoolDown:
+		if (m_timer - m_last_time >= cd_time)
+		{
+			m_state = TowerState::Ready;
+		}
+		break;
+	default:
+		break;
 	}
+}
+
+Monster * Tower::seachTarget(const cocos2d::Vector<Monster*>& monsters)
+{
+	float range = 3;
+
+	range = CELL_WIDTH * range;
+	Vec2 pos = getPosition() + getParent()->getPosition();
+	for (auto monster : monsters)
+	{
+		auto monster_pos = monster->getPosition();
+		float dis = pos.distance(monster_pos);
+		if (dis <= range)
+			return monster;
+	}
+	return nullptr;
 }

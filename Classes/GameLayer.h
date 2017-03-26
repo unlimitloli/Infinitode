@@ -12,6 +12,8 @@ public:
 
 	GameMap * getGameMap();
 
+	void onTouchStart(cocos2d::Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+
 protected:
 	cocos2d::ui::Widget *m_root = nullptr;;
 

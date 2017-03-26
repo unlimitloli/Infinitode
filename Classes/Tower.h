@@ -1,5 +1,8 @@
 #pragma once
 #include "commons.h"
+#include "TowerDefine.h"
+
+class Monster;
 
 class Tower : public cocos2d::Node
 {
@@ -18,5 +21,10 @@ protected:
 	bool m_is_selected = false;
 	cocos2d::Sprite *m_tower_sprite = nullptr;
 
-	time_t m_last_time;
+	float m_last_time = 0.0f;
+	float m_timer = 0.0f;
+	TowerState m_state = TowerState::Ready;
+
+protected:
+	virtual Monster * seachTarget(const cocos2d::Vector<Monster *> &monsters);
 };

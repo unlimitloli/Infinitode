@@ -1,6 +1,7 @@
 #include "GameLayer.h"
 #include "GameMap.h"
 #include "MenuLayer.h"
+#include "MonsterManager.h"
 
 USING_NS_CC;
 using namespace ui;
@@ -20,6 +21,9 @@ bool GameLayer::init()
 	auto csb_node = CSLoader::createNode(csb_config.game_layer);
 	addChild(csb_node);
 	m_root = dynamic_cast<Widget *>(csb_node->getChildByName("root"));
+
+	auto startBtn = dynamic_cast<Button *>(Helper::seekWidgetByName(m_root, "Button_start"));
+	startBtn->addTouchEventListener(CC_CALLBACK_2(GameLayer::onTouchStart, this));
 
 	auto scroll_view = dynamic_cast<ScrollView *>(m_root->getChildByName("ScrollView_map"));
 	scroll_view->removeAllChildrenWithCleanup(true);
@@ -42,4 +46,10 @@ bool GameLayer::init()
 GameMap * GameLayer::getGameMap()
 {
 	return m_game_map;
+}
+
+void GameLayer::onTouchStart(cocos2d::Ref * sender, cocos2d::ui::Widget::TouchEventType type)
+{
+	if (type == ui::Widget::TouchEventType::ENDED)
+		_game->getMonsterManager()->createMonsters();
 }

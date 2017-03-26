@@ -87,10 +87,6 @@ void MonsterManager::parseMap(const std::vector<int> maps, int width, int height
 		m_path.push_back(Vec2(pos % m_width, pos / m_width));
 	});
 
-	m_monster = m_pool.createMonster(2);
-	addChild(m_monster);
-	m_monster->runWithPath(m_path, CC_CALLBACK_1(MonsterManager::transformPos, this));
-
 	scheduleUpdate();
 }
 
@@ -129,7 +125,25 @@ void MonsterManager::update(float dt)
 	push_free.clear();
 }
 
-Monster * MonsterManager::getMonster()
+const Vector<Monster *>& MonsterManager::getMonsters()
 {
-	return m_monster;;
+	return m_pool.getUsedMonster();
+}
+
+void MonsterManager::createMonsters()
+{
+	int count = 10;
+	int monster_id = 2;
+	float dt = 1.0f;
+
+	auto callback = [&, monster_id]() {
+		auto monster = m_pool.createMonster(monster_id);
+		addChild(monster);
+		monster->runWithPath(m_path, CC_CALLBACK_1(MonsterManager::transformPos, this));
+	};
+	
+	runAction(Repeat::create(Sequence::create(CallFunc::create(callback),
+		DelayTime::create(dt),
+		nullptr),
+		count));
 }

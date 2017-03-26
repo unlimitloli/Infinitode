@@ -31,3 +31,10 @@ enum class AttrType
 	UnFreezTime,	// 解冻时间
 	AimSpeed,		// 瞄准时间
 };
+
+enum class TowerState
+{
+	Ready = 0,		// 准备状态，可以开火
+	CoolDown = 1,	// 冷却中
+};
+
